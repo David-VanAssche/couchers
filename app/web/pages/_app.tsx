@@ -14,6 +14,7 @@ import ErrorBoundary from "components/ErrorBoundary";
 import HtmlMeta from "components/HtmlMeta";
 import AuthProvider from "features/auth/AuthProvider";
 import { ReactQueryClientProvider } from "features/reactQueryClient";
+import StatsigProvider from "features/statsig/StatsigProvider";
 import type { AppProps } from "next/app";
 import { appWithTranslation } from "next-i18next";
 import nextI18nextConfig from "next-i18next.config";
@@ -82,12 +83,14 @@ function MyApp({ Component, pageProps }: AppWithLayoutProps) {
           <ErrorBoundary isFatal>
             <ReactQueryClientProvider>
               <AuthProvider>
-                <CssBaseline />
-                <EnvironmentBanner />
-                <HtmlMeta />
-                <AppCacheProvider>
-                  {getLayout(<Component {...pageProps} />)}
-                </AppCacheProvider>
+                <StatsigProvider>
+                  <CssBaseline />
+                  <EnvironmentBanner />
+                  <HtmlMeta />
+                  <AppCacheProvider>
+                    {getLayout(<Component {...pageProps} />)}
+                  </AppCacheProvider>
+                </StatsigProvider>
               </AuthProvider>
             </ReactQueryClientProvider>
           </ErrorBoundary>
