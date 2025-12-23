@@ -1,7 +1,7 @@
 """Implement UMS for friend reqs
 
 Revision ID: 8191f466c673
-Revises: f8b4ef6e3819
+Revises: f016e6defa9d
 Create Date: 2025-12-23 10:51:21.670999
 
 """
@@ -11,7 +11,7 @@ from alembic import op
 
 # revision identifiers, used by Alembic.
 revision = "8191f466c673"
-down_revision = "f8b4ef6e3819"
+down_revision = "f016e6defa9d"
 branch_labels = None
 depends_on = None
 
